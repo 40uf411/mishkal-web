@@ -1,524 +1,532 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="favicon.png" rel="icon" type="image/png">
-    <link href="css/font.css" rel="stylesheet">
-    <link href="css/fontawsome.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/shards.min.css" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <title>مشكال النصوص العربية</title>
+<link href="favicon.png" rel="icon" type="image/png">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/shards.min.js"></script>
-    <script src="js/jquery.mCustomScrollbar.min.js"></script>
-    <script src="js/jquery.mousewheel.min.js"></script>
-    <script src="js/main.js"></script>
+<link href="css/font.css" rel="stylesheet">
+<link href="css/fontawsome.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/shards.min.css" rel="stylesheet">
+<link href="css/normalize.css" rel="stylesheet">
+<link href="css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/adawatstyle.css" rel="stylesheet">
 
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/shards.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cytoscape.min.js"></script>
+<title>مشكال النصوص العربية</title>
 </head>
 <body>
 <div class="main-page" style="">
-    <div class="st-content">
-        <div class="st-content-inner">
-            <!-- nav bar-->
-            <nav class="top-nav navbar navbar-expand-lg">
-                <div class="container">
-                    <div class="row w-100">
-                        <div class="col-9 col-sm-9 col-md-11  p1">
-                            <img src="img/logo.png" alt="" class="logo">
-                        </div>
-                        <div class="col-3 col-md-1 menu-icon p2">
-                            <img src="img/list.svg">
-                            
-                            <li class="nav-item dropdown show dropdown-menu-right ">
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item text-right" href="#">الرئيسية</a>
-                                    <a class="dropdown-item text-right" href="#">تحميل</a>
-                                    <a class="dropdown-item text-right" href="#">توثيق</a>
-                                    <a class="dropdown-item text-right" href="#">مشاريع</a>
-                                    <a class="dropdown-item text-right" href="#">اتصل بنا</a>
-                                    </div>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- end nav bar -->
-            <div class="page-content" style="overflow:hidden">
-                <div class="bg_invert">
-                    <div class="container text-area">
-                                <div class="row" style="padding:30px 0">
-                                    <div class="col-xs-12 col-xm-12 col-sm-12 col-md-6 output-part for-desktop">
-                                        <div class="card">
-                                            <form action="" class="card-body">                          
-                                                <div class="row">
-                                                    <div class="col">
-                                                      <div class="form-group">
-                                                          <label for="exampleInputMessage1">
-                                                                <h2>النص مشكل</h2>
-                                                            </label>
-                                                          <textarea id="OutoutText" class="form-control" name="InputText" cols="90" rows="7" placeholder="النص مشكل" readonly></textarea>
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row pr-3 pl-3 pb-3">
-                                                    <div class="col">
-                                                        <div class="" role="group" aria-label="Basic example">
-                                                                <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel">! ابلاغ عن تشكيل خاطئ</button>
-                                                                <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
-                                                                <button type="button" class="btn btn-primary btn-pill">نسخ</button>
-                                                        </div>
-                                                        <div class="modal fade" id="tashkilModel" tabindex="-1" role="dialog" aria-labelledby="tashkilModel" style="display: none;" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="tashkilModel">اقتراح تشكيل أفضل</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">×</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body"> 
-                                                                            <div class="form-group" style="text-align:right">
-                                                                                <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <div class="row w-100">
-                                                                            <div class="col-12">
-                                                                                <button type="button" class="btn btn-success btn-pill w-100" data-dismiss="modal">send</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-xm-12 col-md-6 input-part">
-                                        <div class="card">
-                                            <form action="" class="card-body">                          
-                                                <div class="row">
-                                                    <div class="col">
-                                                      <div class="form-group">
-                                                          <label for="exampleInputMessage1">
-                                                                <h2>أدخل النص هنا</h2></label>
-                                                          <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row  pr-3">
-                                                    <div class="col">
-                                                        <fieldset>
-                                                            <div class="custom-control custom-checkbox d-block my-2" style="float:right">
-                                                                <input type="checkbox" class="custom-control-input" id="customCheck2" checked="" >
-                                                                <label class="custom-control-label" for="customCheck2">حركة الإعراب</label>
-                                                            </div>
-                                                        </fieldset>
-                                                    </div>
-                                                </div> 
-                                                <div class="row pr-3 pb-3">
-                                                    <div class="col">
-                                                        <p class="mb-sm-3">
-                                                            <button class="btn btn-pill btn-outline-primary" type="button" data-toggle="collapse" data-target="#multiCollapse1" aria-expanded="false" aria-controls="multiCollapse1">أدوات</button>
-                                                            <button class="btn btn-pill btn-outline-primary" type="button" data-toggle="collapse" data-target="#multiCollapse2" aria-expanded="false" aria-controls="multiCollapse2">خيارات</button>
-                                                            <button type="button" class="btn btn-outline-danger btn-pill">مسح</button>
-                                                            <button type="button" class="btn btn-outline-success btn-pill">تشكيل</button>
-                                                            <button type="button" class="btn btn-outline-secondary btn-pill">إعراب</button>
-                                                        </p>
-                                                        <div class="row extra">
-                                                            <div class="col-12">
-                                                                <div class="collapse multi-collapse" id="multiCollapse1">
-                                                                    <div class="card card-body">
-                                                                        <div class="row">
-                                                                            <div class="col">
-                                                                                <div class="mb-2">
-                                                                                    <button type="button" class="btn btn-primary btn-pill">تحليل</button>
-                                                                                    <button type="button" class="btn btn-primary btn-pill">تدقيق</button>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <div id="accordion">
-                                                                                    <div class="card card text-white bg-primary mb-3" style="overflow:hidden">
-                                                                                        <div class="card-header mb-0" id="headingOne">
-                                                                                            <h5 class="mb-0">
-                                                                                                <a class="btn btn-link text-white extra-opt" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                                                    تحويل
-                                                                                                </a>
-                                                                                            </h5>
-                                                                                        </div>
-                                                                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                                                                            <div class="card-body mt-0">
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">تقسيم</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">تفريق</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">ثنائيات</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">توليد</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">تنميط</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">تحديد اللغة</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">ترقيم</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">ترتيب حسب اخر حرف</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">قلب الحروف</button>
-                                                                                                <button type="button" class="btn btn-secondary btn-pill">ضبط قصيدة عمودية</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="card">
-                                                                                        <div class="card-header" id="headingTwo">
-                                                                                            <h5 class="mb-0">
-                                                                                                <a class="btn btn-link collapsed extra-opt" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                                                    استخلاص
-                                                                                                </a>
-                                                                                            </h5>
-                                                                                        </div>
-                                                                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                                                            <div class="card-body">
-                                                                                                <button type="button" class="btn btn-primary btn-pill">متلازمات</button>
-                                                                                                <button type="button" class="btn btn-primary btn-pill">تصنيف</button>
-                                                                                                <button type="button" class="btn btn-primary btn-pill">المكونات</button>
-                                                                                                <button type="button" class="btn btn-primary btn-pill">المعدودات</button>
-                                                                                                <button type="button" class="btn btn-primary btn-pill">المسميات</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="collapse multi-collapse" id="multiCollapse2">
-                                                                    <div class="card card-body">
-                                                                        <div class="row">
-                                                                            <div class="col">
-                                                                                    <h3>:تشكيل</h3>
-                                                                                    <hr>
-                                                                                    <button type="button" class="btn btn-primary btn-pill">مقولة عشوائية</button>
-                                                                                    <button type="button" class="btn btn-primary btn-pill">مطابقة</button>
-                                                                                    <button type="button" class="btn btn-primary btn-pill">إختزال</button>
-                                                                                    <button type="button" class="btn btn-primary btn-pill">إزالة</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>                                     
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-xm-12 col-md-6 output-part for-mobile">
-                                        <div class="card">
-                                            <form action="" class="card-body">                          
-                                                <div class="row">
-                                                    <div class="col">
-                                                      <div class="form-group">
-                                                          <label for="exampleInputMessage1">
-                                                                <h2>النص مشكل</h2>
-                                                            </label>
-                                                          <textarea id="OutoutText" class="form-control" name="InputText" cols="90" rows="7" placeholder="النص مشكل" readonly></textarea>
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row pr-3 pl-3 pb-3">
-                                                    <div class="col">
-                                                        <div class="" role="group" aria-label="Basic example">
-                                                                <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel1">! ابلاغ عن تشكيل خاطئ</button>
-                                                                <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
-                                                                <button type="button" class="btn btn-primary btn-pill">نسخ</button>
-                                                        </div>
-                                                        <div class="modal fade" id="tashkilModel1" tabindex="-1" role="dialog" aria-labelledby="tashkilModel1" style="display: none;" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="tashkilModel">اقتراح تشكيل أفضل</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">×</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body"> 
-                                                                            <div class="form-group" style="text-align:right">
-                                                                                <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <div class="row w-100">
-                                                                            <div class="col-12">
-                                                                                <button type="button" class="btn btn-success btn-pill w-100" data-dismiss="modal">send</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            <hr style="    margin-bottom: 0;">
-                    </div>
-                </div>
-                <div class="container download-area">
-                            <div class="row">
-                                <div class="col-12 mt-4 mb-4">
-                                    <h3 class="title">تحميل مشكال</h3>
-                                    <p>
-يمكنك استعمال مشكال على حاسوبك، على نظام وندوز ولينكس، احصل على تجربة فريدة وأداء أسرع حمّله الان.
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <!-- Trigger -->
-                                    <button type="button" class="btn btn-primary btn-pill btn-lg d-table ml-auto mr-auto" data-toggle="modal" data-target="#exampleModal">
-                                        ✋ تحميل مشكال
-                                    </button>
-                                      
-                                    <!-- Modal Body -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">لا تفوّت التحديثات 😍</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                   . أدخل بريدك الالكتروني كي لا تفوتك أي إضافة أو تحدبث.
-                                                   <div class="form-group" style="text-align:right">
-                                                        <input type="email" class="form-control" id="form1-email" placeholder="أدخل بريدك الالكتروني" style="text-align:center">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <button type="button" class="btn btn-outline-secondary btn-pill" data-dismiss="modal">.لا، شكرًا، أريد التحميل فقط </button>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <button type="button" class="btn btn-success btn-pill" data-dismiss="modal">أكيد! اشترك وحمّل مشكال</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                </div>
-                <div class="bg_invert">
-                    <div class="container other-pro-area">
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12 mt-4 mb-4">
-                                        <h3 class="title">جرّب مشاريعنا</h3>
-                                        <p>
-                                           . لا تنس الإطلاع على مشاريعنا الأخرى
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- products1 -->
-                                <div class="py-4 pro-cards">
-                                        <div class="row">
-                                          <div class="card-deck">
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top" src="img/radif_header.png" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h4 class="card-title">الرديف</h4>
-                                                <p class="card-text">. الرديف يفيد المستخدم في البحث عن كلمات مرادفة أو أضداد أو جمع كلمة معينة، وقد يفيد في البحث عن الكلمات التي تنتهي بقافية معينة.                                    </p>
-                                                <a class="btn btn-primary btn-pill" href="http://radif.sourceforge.net/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                            
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top" src="img/adawatlogo.png" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h4 class="card-title">أدوات</h4>
-                                                <p class="card-text">... أدوات برنامج يوّفر وظائف مفيدة لتحرير النص العربي، كأزرار لإضافة الحركات، والتصحيح التلقائي للنص، ودعم الحروف غير الموضوعة على لوحة المفاتيح مثل الألف الخنجرية والحروف الأعجمية وتحويل الأعداد إلى كلمات وغيرها</p>
-                                                <a class="btn btn-primary btn-pill" href="http://adawat.sourceforge.net/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                            
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top" src="img/toplogo.jpg" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h4 class="card-title">قطرب</h4>
-                                                <p class="card-text">قطرب برنامج لتصريف الافعال العربية في كل الأزمنة.</p>
-                                                <a class="btn btn-primary btn-pill" href="https://qutrub.arabeyes.org/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          </div>
-                                        </div>
-                                </div>
+<div class="st-content">
+<div class="st-content-inner">
+<!-- nav bar-->
+<nav class="top-nav navbar navbar-expand-lg">
+    <div class="container">
+        <div class="row w-100">
+            <div class="col-9 col-sm-9 col-md-11  p1">
+                <img src="img/logo.png" alt="" class="logo">
+            </div>
+            <div class="col-3 col-md-1 menu-icon p2">
+                <img src="img/list.svg">
                 
-                                <!-- products2 -->
-                                <div class="py-4 pro-cards">
-                                        <div class="row">
-                                          <div class="card-deck">
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top" src="img/ayaspell.png" alt="ل">
-                                              <div class="card-body">
-                                                <h4 class="card-title">آية سبل</h4>
-                                                <p class="card-text">. هدف مشروع آيسبل هو إنشاء قواميس في اللغة العربية للتطبيقات المكتبية الحرة مثل مجموعة أوبن أوفس OpenOffice.org، متصفح فابرفوكس Firefox، مراسل تاندربيرد Thunderbird، أبيوورد Abiword، جيديت Gedit ...الخ. </p>
-                                                <a class="btn btn-primary btn-pill" href="http://ayaspell.sourceforge.net/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                            
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top svg" src="img/logo-small.6eef541e.svg" alt="pyarabic">
-                                              <div class="card-body">
-                                                <h4 class="card-title">pyarabic</h4>
-                                                <p class="card-text"></p>.
-                                                مكتبة برمجية للغة العربية بلغة بيثون، توفر دوالا للتحكم في الحروف والنصوص، مثلا تحديد نوع الحرف، حذف الحركات، مقارنة التشكيل</p>
-                                                <a class="btn btn-primary btn-pill" href="https://pypi.org/project/PyArabic/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                            
-                                          <div class="col-md-12 col-lg-4">
-                                            <div class="card mb-4">
-                                              <img class="card-img-top svg" src="img/logo-small.6eef541e.svg" alt="تاشفين">
-                                              <div class="card-body">
-                                                <h4 class="card-title">تاشفين</h4>
-                                                <p class="card-text">. التجذيع الخفيف للنصوص</p>
-                                                <a class="btn btn-primary btn-pill" href="https://pypi.org/project/Tashaphyne/">الصفحة الرسمية →</a>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          </div>
-                                        </div>
-                                </div>
-                             
-                        <hr>   
-                    </div>
-                </div>
-
-                <div class="container dev-area testimonials section mb-5">
-                        <div class="row text-right">
-                            <div class="col-12 mt-4 mb-4">
-                                <h3 class="title">: من تطوير</h3>
-                            </div>
+                <li class="nav-item dropdown show dropdown-menu-right ">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item text-right" href="#">الرئيسية</a>
+                        <a class="dropdown-item text-right" href="#">تحميل</a>
+                        <a class="dropdown-item text-right" href="#">توثيق</a>
+                        <a class="dropdown-item text-right" href="#">مشاريع</a>
+                        <a class="dropdown-item text-right" href="#">اتصل بنا</a>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 testimonial text-center"></div>
-                            <div class="col-md-4 testimonial text-center">
-                                <div class="avatar  mb-3 ml-auto mr-auto">
-                                    <img src="img/taha.jpg" class="w-50 with-shadows rounded-circle" alt="Testimonial Avatar">
-                                </div>
-                                <h5 class="mb-1">الأستاذ طه زروقي</h5>
-                                <span class="text-muted d-block mb-2">أستاذ جامعي و مطور برمجيات مفتوحة المصدر للغة العربية</span>
-                                <p style="margin-bottom: 10px;">Computer Science Professor,<br> Interest : Arabic Natural Language processing</p>
-                                <div class="profile-links">
-                                        <a href="#"><img src="img/facebook.svg"></a>
-                                        <a href="https://github.com/linuxscout" style="margin: 0 6px "><img src="img/github.svg"></a>
-                                        <a href="#"><img src="img/twitter.svg"></a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 testimonial text-center"></div>
-                        </div>                    
-                </div>
-                <div class="bg_invert">
-                    <div class="container contact-area">
-                        <hr>
-                        <div class="row">
-                            <div class="col-12 mt-4 mb-4">
-                                <h3 class="title"> اتصل بنا</h3>
-                            </div>
-                        </div>
-                        <div class="container py-4">
-                          <div class="row justify-content-md-center px-4">
-                            <div class="contact-form col-sm-12 col-md-10 col-lg-7 p-4 mb-4 card">
-                              <form>
-                                <div class="row">
-                                  <div class="col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                      <label for="contactFormFullName">الاسم الكامل</label>
-                                      <input type="email" class="form-control" id="contactFormFullName" placeholder="... الاسم الكامل">
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                      <label for="contactFormEmail">البريد الالكتروني</label>
-                                      <input type="email" class="form-control" id="contactFormEmail" placeholder="... البريد الالكتروني">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                        <label for="exampleInputMessage1">نص الرسالة</label>
-                                        <textarea id="exampleInputMessage1" class="form-control mb-4" rows="10" placeholder="... نص الرسالة" name="message"></textarea>
-                                    </div>
-                                  </div>
-                                </div>
-                                <input class="btn btn-primary btn-pill d-flex ml-auto mr-auto" type="submit" value="إرسال">
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <footer class="bg-dark text-white py-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 testimonial text-center"></div>
-                            <div class="col-md-4 testimonial text-center">
-                                website hosted by <a href="https://dreamdev.dz/"><strong>DreamDev</strong></a>
-                            </div>
-                            <div class="col-md-4 testimonial text-center"></div>
-                        </div>
-                        <div class="row" style="margin-top:5px">
-                            <div class="col-md-4 testimonial text-center"></div>
-                            <div class="col-md-4 testimonial text-center text-secondary">
-                                Designed with ❤ by <a href="https://github.com/Sho-Oter/" class="textt-white">Ali Aouf</a>
-                            </div>
-                            <div class="col-md-4 testimonial text-center"></div>
-                        </div>
-                    </div>
-                </footer>
+                </li>
             </div>
         </div>
     </div>
+</nav>
+<!-- end nav bar -->
+<div class="page-content" style="overflow:hidden">
+    <div class="bg_invert">
+        <div class="container text-area">
+                    <div class="row" style="padding:30px 0">
+                        <div class="col-xs-12 col-xm-12 col-sm-12 col-md-6 output-part for-desktop">
+                            <div class="card">
+<form action="" class="card-body">                          
+                                    <div class="row">
+                                        <div class="col">
+                                          <div class="form-group">
+                                              <label for="exampleInputMessage1">
+                                                    <h2>النص مشكل</h2>
+                                                </label>
+                                              <textarea id="OutoutText" class="form-control" name="InputText" cols="90" rows="7" placeholder="النص مشكل" readonly></textarea>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row pr-3 pl-3 pb-3">
+                                        <div class="col">
+                                            <div class="" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel">! ابلاغ عن تشكيل خاطئ</button>
+                                                    <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
+                                                    <button type="button" class="btn btn-primary btn-pill">نسخ</button>
+                                            </div>
+                                            <div class="modal fade" id="tashkilModel" tabindex="-1" role="dialog" aria-labelledby="tashkilModel" style="display: none;" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="tashkilModel">اقتراح تشكيل أفضل</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body"> 
+                                                                <div class="form-group" style="text-align:right">
+                                                                    <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="row w-100">
+                                                                <div class="col-12">
+                                                                    <button type="button" class="btn btn-success btn-pill w-100" data-dismiss="modal">send</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-xm-12 col-md-6 input-part">
+                            <div class="card">
+<form action="" id="NewForm" name="NewForm" class="card-body">                          
+                                    <div class="row">
+                                        <div class="col">
+                                          <div class="form-group" >
+                                              <label for="exampleInputMessage1">
+                                                    <h2>أدخل النص هنا</h2></label>
+                                              <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row  pr-3">
+                                        <div class="col">
+                                            <fieldset>
+                                                <div class="custom-control custom-checkbox d-block my-2" style="float:right">
+                                                    <input type="checkbox" class="custom-control-input" checked id="LastMark" value='1' >
+                                                    <label class="custom-control-label" for="customCheck2"  >حركة الإعراب</label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div> 
+                                    <div class="row pr-3 pb-3">
+                                        <div class="col">
+                                            <p class="mb-sm-3">
+                                                <button class="btn btn-pill btn-outline-primary" type="button" data-toggle="collapse" data-target="#multiCollapse1" aria-expanded="false" aria-controls="multiCollapse1">أدوات</button>
+                                                <button class="btn btn-pill btn-outline-primary" type="button" data-toggle="collapse" data-target="#multiCollapse2" aria-expanded="false" aria-controls="multiCollapse2">خيارات</button>
+<button type="button" class="btn btn-outline-danger btn-pill">مسح</button>
+<button type="button" id="tashkeel" class="btn btn-outline-success btn-pill">تشكيل</button>
+<button type="button" class="btn btn-outline-secondary btn-pill">إعراب</button>
+                                            </p>
+                                            <div class="row extra">
+                                                <div class="col-12">
+                                                    <div class="collapse multi-collapse" id="multiCollapse1">
+                                                        <div class="card card-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="mb-2">
+                                                                        <button type="button" class="btn btn-primary btn-pill">تحليل</button>
+                                                                        <button type="button" class="btn btn-primary btn-pill">تدقيق</button>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div id="accordion">
+                                                                        <div class="card card text-white bg-primary mb-3" style="overflow:hidden">
+                                                                            <div class="card-header mb-0" id="headingOne">
+                                                                                <h5 class="mb-0">
+                                                                                    <a class="btn btn-link text-white extra-opt" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                                        تحويل
+                                                                                    </a>
+                                                                                </h5>
+                                                                            </div>
+                                                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                                                <div class="card-body mt-0">
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">تقسيم</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">تفريق</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">ثنائيات</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">توليد</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">تنميط</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">تحديد اللغة</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">ترقيم</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">ترتيب حسب اخر حرف</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">قلب الحروف</button>
+                                                                                    <button type="button" class="btn btn-secondary btn-pill">ضبط قصيدة عمودية</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card">
+                                                                            <div class="card-header" id="headingTwo">
+                                                                                <h5 class="mb-0">
+                                                                                    <a class="btn btn-link collapsed extra-opt" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                                        استخلاص
+                                                                                    </a>
+                                                                                </h5>
+                                                                            </div>
+                                                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                                                <div class="card-body">
+                                                                                    <button type="button" class="btn btn-primary btn-pill">متلازمات</button>
+                                                                                    <button type="button" class="btn btn-primary btn-pill">تصنيف</button>
+                                                                                    <button type="button" class="btn btn-primary btn-pill">المكونات</button>
+                                                                                    <button type="button" class="btn btn-primary btn-pill">المعدودات</button>
+                                                                                    <button type="button" class="btn btn-primary btn-pill">المسميات</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="collapse multi-collapse" id="multiCollapse2">
+                                                        <div class="card card-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                        <h3>:تشكيل</h3>
+                                                                        <hr>
+                                                                        <button type="button" class="btn btn-primary btn-pill">مقولة عشوائية</button>
+                                                                        <button type="button" class="btn btn-primary btn-pill">مطابقة</button>
+                                                                        <button type="button" class="btn btn-primary btn-pill">إختزال</button>
+                                                                        <button type="button" class="btn btn-primary btn-pill">إزالة</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                     
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-xm-12 col-md-6 output-part for-mobile">
+                            <div class="card">
+                                <form action="" class="card-body">                          
+                                    <div class="row">
+                                        <div class="col">
+                                          <div class="form-group">
+                                              <label for="exampleInputMessage1">
+                                                    <h2>النص مشكل</h2>
+                                                </label>
+
+                                              <textarea id="OutoutText" class="form-control" name="InputText" cols="90" rows="7" placeholder="النص مشكل" readonly></textarea>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row pr-3 pl-3 pb-3">
+                                        <div class="col">
+                                            <div class="" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel1">! ابلاغ عن تشكيل خاطئ</button>
+                                                    <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
+                                                    <button type="button" class="btn btn-primary btn-pill">نسخ</button>
+                                            </div>
+                                            <div class="modal fade" id="tashkilModel1" tabindex="-1" role="dialog" aria-labelledby="tashkilModel1" style="display: none;" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="tashkilModel">اقتراح تشكيل أفضل</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body"> 
+                                                                <div class="form-group" style="text-align:right">
+                                                                    <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="row w-100">
+                                                                <div class="col-12">
+                                                                    <button type="button" class="btn btn-success btn-pill w-100" data-dismiss="modal">send</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <hr style="    margin-bottom: 0;">
+        </div>
+    </div>
+
+<output id="result" width=100%>%(ResultText)s</output>
+    <div class="container download-area">
+                <div class="row">
+                    <div class="col-12 mt-4 mb-4">
+                        <h3 class="title">تحميل مشكال</h3>
+                        <p>
+يمكنك استعمال مشكال على حاسوبك، على نظام وندوز ولينكس، احصل على تجربة فريدة وأداء أسرع حمّله الان.
+                        </p>
+                    </div>
+                    <div class="col-12">
+                        <!-- Trigger -->
+                        <button type="button" class="btn btn-primary btn-pill btn-lg d-table ml-auto mr-auto" data-toggle="modal" data-target="#exampleModal">
+                            ✋ تحميل مشكال
+                        </button>
+                          
+                        <!-- Modal Body -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">لا تفوّت التحديثات 😍</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       . أدخل بريدك الالكتروني كي لا تفوتك أي إضافة أو تحدبث.
+                                       <div class="form-group" style="text-align:right">
+                                            <input type="email" class="form-control" id="form1-email" placeholder="أدخل بريدك الالكتروني" style="text-align:center">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <button type="button" class="btn btn-outline-secondary btn-pill" data-dismiss="modal">.لا، شكرًا، أريد التحميل فقط </button>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <button type="button" class="btn btn-success btn-pill" data-dismiss="modal">أكيد! اشترك وحمّل مشكال</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="bg_invert">
+        <div class="container other-pro-area">
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 mt-4 mb-4">
+                            <h3 class="title">جرّب مشاريعنا</h3>
+                            <p>
+                               . لا تنس الإطلاع على مشاريعنا الأخرى
+                            </p>
+                        </div>
+                    </div>
+                    <!-- products1 -->
+                    <div class="py-4 pro-cards">
+                            <div class="row">
+                              <div class="card-deck">
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top" src="img/radif_header.png" alt="Card image cap">
+                                  <div class="card-body">
+                                    <h4 class="card-title">الرديف</h4>
+                                    <p class="card-text">. الرديف يفيد المستخدم في البحث عن كلمات مرادفة أو أضداد أو جمع كلمة معينة، وقد يفيد في البحث عن الكلمات التي تنتهي بقافية معينة.                                    </p>
+                                    <a class="btn btn-primary btn-pill" href="http://radif.sourceforge.net/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top" src="img/adawatlogo.png" alt="Card image cap">
+                                  <div class="card-body">
+                                    <h4 class="card-title">أدوات</h4>
+                                    <p class="card-text">... أدوات برنامج يوّفر وظائف مفيدة لتحرير النص العربي، كأزرار لإضافة الحركات، والتصحيح التلقائي للنص، ودعم الحروف غير الموضوعة على لوحة المفاتيح مثل الألف الخنجرية والحروف الأعجمية وتحويل الأعداد إلى كلمات وغيرها</p>
+                                    <a class="btn btn-primary btn-pill" href="http://adawat.sourceforge.net/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top" src="img/toplogo.jpg" alt="Card image cap">
+                                  <div class="card-body">
+                                    <h4 class="card-title">قطرب</h4>
+                                    <p class="card-text">قطرب برنامج لتصريف الافعال العربية في كل الأزمنة.</p>
+                                    <a class="btn btn-primary btn-pill" href="https://qutrub.arabeyes.org/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                    </div>
+    
+                    <!-- products2 -->
+                    <div class="py-4 pro-cards">
+                            <div class="row">
+                              <div class="card-deck">
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top" src="img/ayaspell.png" alt="ل">
+                                  <div class="card-body">
+                                    <h4 class="card-title">آية سبل</h4>
+                                    <p class="card-text">. هدف مشروع آيسبل هو إنشاء قواميس في اللغة العربية للتطبيقات المكتبية الحرة مثل مجموعة أوبن أوفس OpenOffice.org، متصفح فابرفوكس Firefox، مراسل تاندربيرد Thunderbird، أبيوورد Abiword، جيديت Gedit ...الخ. </p>
+                                    <a class="btn btn-primary btn-pill" href="http://ayaspell.sourceforge.net/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top svg" src="img/logo-small.6eef541e.svg" alt="pyarabic">
+                                  <div class="card-body">
+                                    <h4 class="card-title">pyarabic</h4>
+                                    <p class="card-text"></p>.
+                                    مكتبة برمجية للغة العربية بلغة بيثون، توفر دوالا للتحكم في الحروف والنصوص، مثلا تحديد نوع الحرف، حذف الحركات، مقارنة التشكيل</p>
+                                    <a class="btn btn-primary btn-pill" href="https://pypi.org/project/PyArabic/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="col-md-12 col-lg-4">
+                                <div class="card mb-4">
+                                  <img class="card-img-top svg" src="img/logo-small.6eef541e.svg" alt="تاشفين">
+                                  <div class="card-body">
+                                    <h4 class="card-title">تاشفين</h4>
+                                    <p class="card-text">. التجذيع الخفيف للنصوص</p>
+                                    <a class="btn btn-primary btn-pill" href="https://pypi.org/project/Tashaphyne/">الصفحة الرسمية →</a>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                    </div>
+                 
+            <hr>   
+        </div>
+    </div>
+
+    <div class="container dev-area testimonials section mb-5">
+            <div class="row text-right">
+                <div class="col-12 mt-4 mb-4">
+                    <h3 class="title">: من تطوير</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 testimonial text-center"></div>
+                <div class="col-md-4 testimonial text-center">
+                    <div class="avatar  mb-3 ml-auto mr-auto">
+                        <img src="img/taha.jpg" class="w-50 with-shadows rounded-circle" alt="Testimonial Avatar">
+                    </div>
+                    <h5 class="mb-1">الأستاذ طه زروقي</h5>
+                    <span class="text-muted d-block mb-2">أستاذ جامعي و مطور برمجيات مفتوحة المصدر للغة العربية</span>
+                    <p style="margin-bottom: 10px;">Computer Science Professor,<br> Interest : Arabic Natural Language processing</p>
+                    <div class="profile-links">
+                            <a href="#"><img src="img/facebook.svg"></a>
+                            <a href="https://github.com/linuxscout" style="margin: 0 6px "><img src="img/github.svg"></a>
+                            <a href="#"><img src="img/twitter.svg"></a>
+                    </div>
+                </div>
+                <div class="col-md-4 testimonial text-center"></div>
+            </div>                    
+    </div>
+    <div class="bg_invert">
+        <div class="container contact-area">
+            <hr>
+            <div class="row">
+                <div class="col-12 mt-4 mb-4">
+                    <h3 class="title"> اتصل بنا</h3>
+                </div>
+            </div>
+            <div class="container py-4">
+              <div class="row justify-content-md-center px-4">
+                <div class="contact-form col-sm-12 col-md-10 col-lg-7 p-4 mb-4 card">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label for="contactFormFullName">الاسم الكامل</label>
+                          <input type="email" class="form-control" id="contactFormFullName" placeholder="... الاسم الكامل">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label for="contactFormEmail">البريد الالكتروني</label>
+                          <input type="email" class="form-control" id="contactFormEmail" placeholder="... البريد الالكتروني">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputMessage1">نص الرسالة</label>
+                            <textarea id="exampleInputMessage1" class="form-control mb-4" rows="10" placeholder="... نص الرسالة" name="message"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="btn btn-primary btn-pill d-flex ml-auto mr-auto" type="submit" value="إرسال">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 testimonial text-center"></div>
+                <div class="col-md-4 testimonial text-center">
+                    website hosted by <a href="https://dreamdev.dz/"><strong>DreamDev</strong></a>
+                </div>
+                <div class="col-md-4 testimonial text-center"></div>
+            </div>
+            <div class="row" style="margin-top:5px">
+                <div class="col-md-4 testimonial text-center"></div>
+                <div class="col-md-4 testimonial text-center text-secondary">
+                    Designed with ❤ by <a href="https://github.com/Sho-Oter/" class="textt-white">Ali Aouf</a>
+                </div>
+                <div class="col-md-4 testimonial text-center"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+</div>
 </div>
 <script>
-    (function($){
-        $(window).on("load",function(){
-            $(".page-content").mCustomScrollbar({
-                theme: 'dark-3',
-                autoHideScrollbar:true,
-                autoExpandScrollbar:true,alwaysShowScrollbar: 1,
-                keyboard:{ enable: true },
-                scrollButtons:{
-                    enable:true
-                }
-            });
-        });
-    })(jQuery);
+(function($){
+$(window).on("load",function(){
+$(".page-content").mCustomScrollbar({
+    theme: 'dark-3',
+    autoHideScrollbar:true,
+    autoExpandScrollbar:true,alwaysShowScrollbar: 1,
+    keyboard:{ enable: true },
+    scrollButtons:{
+        enable:true
+    }
+});
+});
+})(jQuery);
+//var script="http://tahadz.com/mishkal";
+var script="http://127.0.0.1:8080";
+</script> <script src="js/adawat.js"></script></span>
 </script>
 </body>
 </html>
