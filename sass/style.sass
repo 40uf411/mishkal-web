@@ -1,0 +1,175 @@
+$shadow1: 0 2px 9px #b3b3b3
+$sm:576px
+$md:768px
+$lg:992px
+$xl:1200px
+$xxl:1400px
+*
+    font-family: 'Tajawal', sans-serif !important
+    box-sizing: border-box
+
+input, textarea
+    text-align: right
+
+.form-group
+    margin: 1rem
+
+
+.form-control:disabled, .form-control[readonly]
+    background-color: #ffffffc7
+    border: 0
+button, .button
+    margin-bottom: 4px
+.bg_invert
+    background: #f9fafc
+.main-page
+    margin-top: 85px
+    @media(max-width: #{$md})
+        margin-top: 60px
+    
+
+
+.top-nav
+    z-index: 30
+    background: #ffffff
+    position: fixed
+    top: 0
+    border-bottom: 1px solid #ccc
+    width: 100%
+    transition: all .3s linear
+    &.scrolled
+        //width: 98%
+        //top: 7px
+        //left: 50%
+        //transform: translateX(-50%)
+        //border-radius: .50rem
+        box-shadow: $shadow1
+        //border: 1px solid #e6e6e6
+        //max-width: $xl
+        @media(max-width: #{$md})
+            top: 0
+            width: 100%
+            border-radius: 0
+        img.logo 
+            height: 50px
+            @media(max-width: #{$md})
+                height: 40px
+    img.logo 
+        height: 60px
+        position: relative
+        left: 53%
+        transform: translateX(-50%)
+        transition: all .3s linear
+        @media(max-width: #{$md})
+            height: 40px
+
+    .menu-icon
+        img 
+            background: rgba(0, 0, 0, 0.0784313725490196)
+            padding: 10px
+            border-radius: .55rem
+            height: 50px
+            position: relative
+            top: 50%
+            left: 50%
+            transform: translateY(-50%) translateX(-50%)
+            cursor: pointer
+            &:hover
+                background: rgba(0, 0, 0, 0.1784313725490196) 
+        
+        li
+            list-style: none
+            position: absolute
+            bottom: 0
+            left: -6rem
+            .dropdown-menu
+                padding: 0
+            
+    .col
+        position: relative
+        .collapse-menu
+            position: absolute 
+            top: 50%
+            transform: translateY(-50%)
+            span
+                position: relative
+                height: 3px
+                width: 36px
+                display: block
+                margin: 5px 0
+                border-radius: .65rem
+                background: #4e4e4e
+                transition: all .3s linear
+                &:nth-of-type(2)
+                    width: 27px
+                    right: -9px
+            &.active
+                span
+                    background: #909090
+                    &:nth-of-type(2)
+                        width: 36px
+                        right: 0
+    
+
+.text-area
+    overflow: hidden
+    text-align: right
+    textarea
+        resize: none
+
+    .input-part
+        .card
+            border: 1px solid #bbbbbb26
+            @media(max-width: #{$md})
+                margin-bottom: 30px
+
+        .row.extra
+            .col-12:first-of-type
+                .multi-collapse.collapse.show
+                    margin-bottom: 15px
+                    text-decoration: none
+            a.extra-opt
+                font-size: 100%
+
+    .output-part
+        .card
+            padding: 5px 0
+
+.download-area  
+    text-align: right  
+    .title
+        font-weight: bold
+        margin-bottom: 35px 
+
+.other-pro-area  
+    text-align: right  
+    .title
+        font-weight: bold
+        margin-bottom: 35px 
+
+    .pro-cards
+        img.card-img-top  
+            max-height: 150px
+            &.svg
+                max-height: 190px         
+
+
+.dev-area  
+    text-align: right  
+    .title
+        font-weight: bold
+        margin-bottom: 35px 
+    .profile-links
+        img
+            height: 30px
+            fill: #6e6f77
+            filter: grayscale(100%)
+            transition: all .4s linear
+            &:hover
+                filter: grayscale(0%)
+
+.contact-area  
+    text-align: right  
+    .title
+        font-weight: bold
+        margin-bottom: 35px 
