@@ -16,7 +16,7 @@ input, textarea
 
 
 .form-control:disabled, .form-control[readonly]
-    background-color: #ffffffc7
+    background-color: rgba(255, 255, 255, 0.7803921568627451)
     border: 0
 button, .button
     margin-bottom: 4px
@@ -74,6 +74,10 @@ button, .button
             left: 50%
             transform: translateY(-50%) translateX(-50%)
             cursor: pointer
+            @media(max-width: #{$md})
+                padding: 7px
+                height: 40px
+
             &:hover
                 background: rgba(0, 0, 0, 0.1784313725490196) 
         
@@ -132,6 +136,15 @@ button, .button
                 font-size: 100%
 
     .output-part
+        &.for-mobile
+            display: none
+            @media(max-width: #{$md})
+                display: block
+        &.for-desktop
+            display: block
+            @media(max-width: #{$md})
+                display: none 
+
         .card
             padding: 5px 0
 

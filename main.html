@@ -37,10 +37,10 @@
             <nav class="top-nav navbar navbar-expand-lg">
                 <div class="container">
                     <div class="row w-100">
-                        <div class="col-11">
+                        <div class="col-9 col-sm-9 col-md-11  p1">
                             <img src="img/logo.png" alt="" class="logo">
                         </div>
-                        <div class="col-1 menu-icon">
+                        <div class="col-3 col-md-1 menu-icon p2">
                             <img src="img/list.svg">
                             
                             <li class="nav-item dropdown show dropdown-menu-right ">
@@ -61,7 +61,56 @@
                 <div class="bg_invert">
                     <div class="container text-area">
                                 <div class="row" style="padding:30px 0">
-                                    <div class="col-sm-12 col-md-6 input-part">
+                                    <div class="col-xs-12 col-xm-12 col-sm-12 col-md-6 output-part for-desktop">
+                                        <div class="card">
+                                            <form action="" class="card-body">                          
+                                                <div class="row">
+                                                    <div class="col">
+                                                      <div class="form-group">
+                                                          <label for="exampleInputMessage1">
+                                                                <h2>النص مشكل</h2>
+                                                            </label>
+                                                          <textarea id="OutoutText" class="form-control" name="InputText" cols="90" rows="7" placeholder="النص مشكل" readonly></textarea>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row pr-3 pl-3 pb-3">
+                                                    <div class="col">
+                                                        <div class="" role="group" aria-label="Basic example">
+                                                                <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel">! ابلاغ عن تشكيل خاطئ</button>
+                                                                <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
+                                                                <button type="button" class="btn btn-primary btn-pill">نسخ</button>
+                                                        </div>
+                                                        <div class="modal fade" id="tashkilModel" tabindex="-1" role="dialog" aria-labelledby="tashkilModel" style="display: none;" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="tashkilModel">⚠ ! ابلاغ عن تشكيل خاطئ</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body"> 
+                                                                            <div class="form-group" style="text-align:right">
+                                                                                <textarea id="InputText" class="form-control" name="InputText" cols="90" rows="7" placeholder="ادخل النص هنا"></textarea>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <div class="row w-100">
+                                                                            <div class="col-12">
+                                                                                <button type="button" class="btn btn-success btn-pill w-100" data-dismiss="modal">send</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xm-12 col-md-6 input-part">
                                         <div class="card">
                                             <form action="" class="card-body">                          
                                                 <div class="row">
@@ -173,7 +222,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6 output-part">
+                                    <div class="col-xs-12 col-xm-12 col-md-6 output-part for-mobile">
                                         <div class="card">
                                             <form action="" class="card-body">                          
                                                 <div class="row">
@@ -189,11 +238,11 @@
                                                 <div class="row pr-3 pl-3 pb-3">
                                                     <div class="col">
                                                         <div class="" role="group" aria-label="Basic example">
-                                                                <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel">! ابلاغ عن تشكيل خاطئ</button>
+                                                                <button type="button" class="btn btn-danger btn-pill" data-toggle="modal" data-target="#tashkilModel1">! ابلاغ عن تشكيل خاطئ</button>
                                                                 <button type="button" class="btn btn-success btn-pill">نقل النص الى المدخلات</button>
                                                                 <button type="button" class="btn btn-primary btn-pill">نسخ</button>
                                                         </div>
-                                                        <div class="modal fade" id="tashkilModel" tabindex="-1" role="dialog" aria-labelledby="tashkilModel" style="display: none;" aria-hidden="true">
+                                                        <div class="modal fade" id="tashkilModel1" tabindex="-1" role="dialog" aria-labelledby="tashkilModel1" style="display: none;" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">

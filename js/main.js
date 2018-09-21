@@ -51,7 +51,7 @@ $(document).ready(function(){
             $('.top-nav').removeClass('scrolled'); 
         }
     });
-
+    
     $(window).resize(function () {
         var v = ( $(window).width() > 768 )? 85 : 60;
         $('.page-content').css('max-height', $(window).height() - v );
