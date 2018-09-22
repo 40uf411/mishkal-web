@@ -3,6 +3,7 @@
   box-sizing: border-box; }
 
 input, textarea {
+  direction: rtl;
   text-align: right; }
 
 .form-group {
@@ -75,7 +76,7 @@ button, .button {
     list-style: none;
     position: absolute;
     bottom: 0;
-    left: -6rem; }
+    left: -5.5rem; }
     .top-nav .menu-icon li .dropdown-menu {
       padding: 0; }
   .top-nav .col {
@@ -106,7 +107,7 @@ button, .button {
   overflow: hidden;
   text-align: right; }
   .text-area textarea {
-    font-size: 23px;
+    font-size: 28px;
     resize: none; }
   .text-area .input-part .card {
     border: 1px solid #bbbbbb26; }
@@ -118,6 +119,9 @@ button, .button {
     text-decoration: none; }
   .text-area .input-part .row.extra a.extra-opt {
     font-size: 100%; }
+  .text-area .output-part #OutoutText {
+    font-size: 30px;
+    font-family: ColoredTashkeelFont, "Droid Arabic Naskh", Amiri, "Traditional Arabic", Sans, Arial !important; }
   .text-area .output-part.for-mobile {
     display: none; }
 @media(max-width: 768px) {

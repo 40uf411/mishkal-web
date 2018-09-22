@@ -9,6 +9,7 @@ $xxl:1400px
     box-sizing: border-box
 
 input, textarea
+    direction: rtl
     text-align: right
 
 .form-group
@@ -86,7 +87,7 @@ button, .button
             list-style: none
             position: absolute
             bottom: 0
-            left: -6rem
+            left: -5.5rem
             .dropdown-menu
                 padding: 0
             
@@ -120,7 +121,7 @@ button, .button
     overflow: hidden
     text-align: right
     textarea
-        font-size: 23px
+        font-size: 28px
         resize: none
 
     .input-part
@@ -138,6 +139,9 @@ button, .button
                 font-size: 100%
 
     .output-part
+        #OutoutText
+            font-size: 30px
+            font-family: ColoredTashkeelFont,'Droid Arabic Naskh',Amiri,'Traditional Arabic',Sans,Arial !important
         &.for-mobile
             display: none
             @media(max-width: #{$md})
