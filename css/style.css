@@ -107,7 +107,7 @@ button, .button {
   overflow: hidden;
   text-align: right; }
   .text-area textarea {
-    font-size: 28px;
+    font-size: 26px;
     resize: none; }
   .text-area .input-part .card {
     border: 1px solid #bbbbbb26; }
@@ -120,7 +120,6 @@ button, .button {
   .text-area .input-part .row.extra a.extra-opt {
     font-size: 100%; }
   .text-area .output-part #OutoutText {
-    font-size: 30px;
     font-family: ColoredTashkeelFont, "Droid Arabic Naskh", Amiri, "Traditional Arabic", Sans, Arial !important; }
   .text-area .output-part.for-mobile {
     display: none; }
