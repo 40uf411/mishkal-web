@@ -106,6 +106,7 @@ button, .button {
   overflow: hidden;
   text-align: right; }
   .text-area textarea {
+    font-size: 23px;
     resize: none; }
   .text-area .input-part .card {
     border: 1px solid #bbbbbb26; }
